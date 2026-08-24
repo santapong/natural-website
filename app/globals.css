@@ -256,6 +256,33 @@ button {
   color: var(--accent);
 }
 
+.map-btn {
+  right: 20px;
+  bottom: 74px;
+}
+
+.map-label {
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.05em;
+  color: #eaf5ec;
+  background: rgba(5, 13, 9, 0.78);
+  border: 1px solid color-mix(in srgb, var(--zone, #7fd48a) 65%, transparent);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  transform: translateZ(0);
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.map-label:hover,
+.map-label.is-hot {
+  background: color-mix(in srgb, var(--zone, #7fd48a) 26%, rgba(5, 13, 9, 0.85));
+  box-shadow: 0 0 24px color-mix(in srgb, var(--zone, #7fd48a) 55%, transparent);
+}
+
 .journey {
   position: relative;
   height: 1400vh;

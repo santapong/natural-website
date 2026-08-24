@@ -6,6 +6,8 @@ import * as THREE from "three";
 import { sampleAtmosphere } from "@/lib/atmosphere";
 import CameraRig from "./CameraRig";
 import FreeWalkRig from "./FreeWalkRig";
+import MapRig from "./MapRig";
+import WorldMap from "./WorldMap";
 import { cameraPath } from "@/lib/chapters";
 import Trees from "./Trees";
 import Rocks from "./Rocks";
@@ -36,11 +38,15 @@ import Camel from "./Camel";
 export default function ForestScene({
   progressRef,
   freeWalk = false,
+  mapMode = false,
   onWalkExit,
+  onBiomeSelect,
 }: {
   progressRef: { current: number };
   freeWalk?: boolean;
+  mapMode?: boolean;
   onWalkExit?: () => void;
+  onBiomeSelect?: (chapterIndex: number) => void;
 }) {
   const eased = useRef(0);
   const dirLight = useRef<THREE.DirectionalLight>(null);
@@ -54,14 +60,20 @@ export default function ForestScene({
       dt,
     );
     // remember where the scroll journey is so free-walk can spawn there
-    if (!freeWalk) cameraPath.getPoint(eased.current, spawn);
+    if (!freeWalk && !mapMode) cameraPath.getPoint(eased.current, spawn);
     const atmo = sampleAtmosphere(eased.current);
     const bg = state.scene.background;
     if (bg instanceof THREE.Color) bg.copy(atmo.fogColor);
     const fog = state.scene.fog;
     if (fog instanceof THREE.FogExp2) {
       fog.color.copy(atmo.fogColor);
-      fog.density = atmo.density;
+      // thin the air while viewing the whole world from the sky
+      fog.density = THREE.MathUtils.damp(
+        fog.density,
+        mapMode ? 0.0045 : atmo.density,
+        3,
+        dt,
+      );
     }
     if (dirLight.current) {
       dirLight.current.color.copy(atmo.lightColor);
@@ -89,9 +101,13 @@ export default function ForestScene({
 
       {freeWalk ? (
         <FreeWalkRig spawn={spawn} onExit={onWalkExit ?? (() => {})} />
+      ) : mapMode ? (
+        <MapRig />
       ) : (
         <CameraRig eased={eased} />
       )}
+
+      {mapMode && <WorldMap onSelect={onBiomeSelect ?? (() => {})} />}
       <Trees />
       <Rocks />
       <Mushrooms />

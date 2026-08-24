@@ -48,6 +48,12 @@ npm run lint
 npm run typecheck
 ```
 
+## World map mode
+
+Press **🗺️ World map** (bottom-right, next to Free walk) to pull the camera
+up into the sky and see all ten biomes as glowing beacon pillars. Click any
+beacon label to teleport straight to that chapter.
+
 ## Free-walk mode
 
 Press **🚶 Free walk** (bottom-right, desktop only) to leave the rails and

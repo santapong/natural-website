@@ -15,14 +15,25 @@ const JourneyCanvas = dynamic(() => import("@/components/JourneyCanvas"), {
 export default function Experience() {
   const { journeyRef, progressRef, chapter } = useJourney();
   const [freeWalk, setFreeWalk] = useState(false);
+  const [mapMode, setMapMode] = useState(false);
 
-  // freeze page scroll while exploring on foot
+  // freeze page scroll while exploring
   useEffect(() => {
-    document.body.style.overflow = freeWalk ? "hidden" : "";
+    document.body.style.overflow = freeWalk || mapMode ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [freeWalk]);
+  }, [freeWalk, mapMode]);
+
+  /** Teleport the scroll journey to the start of a biome */
+  const travelTo = (chapterIndex: number) => {
+    const el = journeyRef.current;
+    if (!el) return;
+    const p = Math.min(0.995, chapterIndex / CHAPTERS.length + 0.02);
+    const top = el.offsetTop + p * (el.offsetHeight - window.innerHeight);
+    setMapMode(false);
+    window.scrollTo({ top, behavior: "auto" });
+  };
 
   return (
     <>
@@ -33,7 +44,9 @@ export default function Experience() {
           <JourneyCanvas
             progressRef={progressRef}
             freeWalk={freeWalk}
+            mapMode={mapMode}
             onWalkExit={() => setFreeWalk(false)}
+            onBiomeSelect={travelTo}
           />
         </div>
         {CHAPTERS.map((c, i) => (
@@ -50,15 +63,25 @@ export default function Experience() {
 
       <NavDots active={chapter} />
 
-      {!freeWalk && (
-        <button
-          type="button"
-          className="walk-btn"
-          onClick={() => setFreeWalk(true)}
-          title="Explore the world on foot (desktop)"
-        >
-          🚶 Free walk
-        </button>
+      {!freeWalk && !mapMode && (
+        <>
+          <button
+            type="button"
+            className="walk-btn"
+            onClick={() => setFreeWalk(true)}
+            title="Explore the world on foot (desktop)"
+          >
+            🚶 Free walk
+          </button>
+          <button
+            type="button"
+            className="walk-btn map-btn"
+            onClick={() => setMapMode(true)}
+            title="See the whole world from above"
+          >
+            🗺️ World map
+          </button>
+        </>
       )}
 
       {freeWalk && (
@@ -66,6 +89,21 @@ export default function Experience() {
           <strong>WASD</strong> move · <strong>Shift</strong> run ·{" "}
           <strong>mouse</strong> look · <strong>ESC</strong> exit
         </div>
+      )}
+
+      {mapMode && (
+        <>
+          <div className="walk-hud">
+            Click a beacon to travel there
+          </div>
+          <button
+            type="button"
+            className="walk-btn"
+            onClick={() => setMapMode(false)}
+          >
+            ✕ Close map
+          </button>
+        </>
       )}
     </>
   );

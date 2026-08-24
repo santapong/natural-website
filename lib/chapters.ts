@@ -68,6 +68,27 @@ export const CHAPTERS: Chapter[] = [
   },
 ];
 
+export interface ChapterZone {
+  id: string;
+  name: string;
+  z: number;
+  color: string;
+}
+
+/** World-map overview data: one beacon per biome */
+export const CHAPTER_ZONES: ChapterZone[] = [
+  { id: "floor", name: "I · Forest Floor", z: 8, color: "#7fd48a" },
+  { id: "canopy", name: "II · The Canopy", z: -30, color: "#b9e07f" },
+  { id: "autumn", name: "III · Autumn Woodland", z: -68, color: "#f39b2c" },
+  { id: "lake", name: "IV · Mirror Lake", z: -104, color: "#4fc3d9" },
+  { id: "waterfall", name: "V · The Falling Veil", z: -152, color: "#9fdce8" },
+  { id: "fjord", name: "VI · The Fjord", z: -198, color: "#5b8ba0" },
+  { id: "alpine", name: "VII · Alpine Peaks", z: -250, color: "#cfd8e3" },
+  { id: "tundra", name: "VIII · White Silence", z: -294, color: "#e8f1f8" },
+  { id: "savanna", name: "IX · Endless Grass", z: -340, color: "#e8c46a" },
+  { id: "desert", name: "X · The Golden Sand", z: -396, color: "#ffab54" },
+];
+
 const CAM_POINTS: [number, number, number][] = [
   [7, 2.4, 30],
   [2, 5.5, 4],
