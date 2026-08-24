@@ -1,0 +1,57 @@
+==============================================
+ NATURAL WILD — SPLINE HERO SCENE GUIDE
+ (open this file in any editor and copy freely)
+==============================================
+
+--- STEP 1: CREATE THE SCENE ---
+
+Option A - Spline AI (fastest):
+  Open https://spline.design -> new file -> AI / Generate tool
+  and paste this prompt:
+
+------------------------------------------------------------
+A serene low-poly 3D forest clearing at golden hour.
+Tall stylized pine and oak trees around the edges,
+soft volumetric god rays streaming through branches,
+gentle floating mist layers between trunks,
+glowing fireflies hovering near the ground,
+slow-falling leaves drifting through the air.
+Camera placed low at eye level, centered on a small
+grassy clearing, looking deep into the forest.
+Dreamy calm atmosphere, muted emerald green and warm
+amber color palette.
+------------------------------------------------------------
+
+  If the result is too busy, regenerate adding:
+  "minimalist, fewer objects, wide open center"
+
+Option B - Build manually (~15 min):
+  1. New file named: natural-wild-hero
+  2. Assets panel -> search "low poly tree" ->
+     scatter 8-12 trees around the edges, keep center open
+  3. Add a soft green ground plane
+  4. Scene settings -> Environment -> enable fog (light)
+  5. Lights: one warm-orange directional light angled low
+     + dim ambient light
+  6. Optional: search assets for "fireflies"/"falling leaves"
+  7. IMPORTANT - rename key objects exactly:
+        Sun, Leaves, Fireflies
+     (the website can animate them by name later)
+  8. Play Settings -> disable orbit controls
+
+--- STEP 2: EXPORT AND SEND ME THE URL ---
+
+  Export button (top toolbar)
+    -> Code tab
+    -> choose React in the dropdown
+    -> wait for the URL toast
+    -> Copy URL
+
+  It looks like:
+  https://prod.spline.design/XXXXXXXX/scene.splinecode
+
+  Paste that URL back in the chat. One line of code gets
+  swapped in components/Hero.tsx and your scene is live.
+
+NOTE: Free plan exports include a small Spline watermark.
+That is fine for development and showcases.
