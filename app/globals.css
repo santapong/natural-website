@@ -60,16 +60,16 @@ button {
   background: #050d09;
 }
 
-.spline-fill {
+.hero-canvas {
   position: absolute;
   inset: 0;
 }
 
-.spline-fill canvas {
+.hero-canvas canvas {
   display: block;
 }
 
-.spline-loading {
+.hero-loading {
   position: absolute;
   inset: 0;
   background: linear-gradient(110deg, #081711 30%, #0e251b 50%, #081711 70%);

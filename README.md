@@ -9,7 +9,6 @@ sunset finale.
 - Next.js 16 + React 19 + TypeScript (App Router)
 - Three.js via @react-three/fiber + drei (procedural low-poly forest)
 - anime.js v4 (text reveals & micro-animations)
-- @splinetool/react-spline (interactive hero scene)
 
 ## Run
 
@@ -28,30 +27,32 @@ npm run lint
 npm run typecheck
 ```
 
-## Swap in your own Spline scene
+## Customize the hero
 
-The hero currently loads a public demo scene. To use your own:
+The hero is a fully procedural Three.js scene (no Spline needed) — a
+golden-hour forest clearing with god rays, mist, fireflies and falling
+leaves. Tweak it in `components/scene/HeroScene.tsx`:
 
-1. Design a scene at https://spline.design (see `spline-prompt.txt` for a
-   ready-made AI prompt + manual guide).
-2. In the Spline editor: **Export → Code → React**, copy the generated URL.
-3. Replace `DEMO_SCENE_URL` in `components/Hero.tsx`.
+- `buildTrees()` — tree count, ring size, view corridor, framing trunks
+- `BEAMS` / `MISTS` / `LEAF_COUNT` / `FLY_COUNT` — atmosphere density
+- `SunGlow` position + fog range in the `<Canvas>` for mood
 
-Objects named `Sun`, `Leaves`, or `Fireflies` in your scene can be driven by
-code later via the `onLoad` callback.
+`spline-prompt.txt` keeps the original scene brief if you ever want to
+recreate it in an external tool.
 
 ## Structure
 
 ```
 app/                 layout, page, global styles
 components/
-  Hero.tsx           Spline hero section (swap URL here)
+  Hero.tsx           hero section + canvas mount
   JourneyCanvas.tsx  fixed R3F canvas (client-only)
   Experience.tsx     page orchestrator
   NavDots.tsx        chapter progress dots
   overlay/
     ChapterText.tsx  animated chapter cards (anime.js)
   scene/
+    HeroScene.tsx    procedural golden-hour clearing (hero)
     ForestScene.tsx  atmosphere/fog/light controller + composition
     CameraRig.tsx    scroll-driven camera path
     Trees.tsx        instanced low-poly forest

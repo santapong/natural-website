@@ -4,13 +4,10 @@ import dynamic from "next/dynamic";
 import { useEffect, useRef } from "react";
 import { animate, createScope, stagger } from "animejs";
 
-const Spline = dynamic(() => import("@splinetool/react-spline"), {
+const HeroScene = dynamic(() => import("@/components/scene/HeroScene"), {
   ssr: false,
-  loading: () => <div className="spline-loading" />,
+  loading: () => <div className="hero-loading" />,
 });
-
-export const DEMO_SCENE_URL =
-  "https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode";
 
 export default function Hero() {
   const root = useRef<HTMLElement>(null);
@@ -59,8 +56,8 @@ export default function Hero() {
 
   return (
     <header ref={root} className="hero">
-      <div className="spline-fill">
-        <Spline scene={DEMO_SCENE_URL} />
+      <div className="hero-canvas">
+        <HeroScene />
       </div>
       <div className="hero-scrim" />
       <div className="hero-content">
@@ -85,7 +82,7 @@ export default function Hero() {
       <div className="scroll-hint">
         Scroll<span className="hint-arrow">↓</span>
       </div>
-      <span className="hero-tag">Spline demo scene — swap the URL in components/Hero.tsx</span>
+      <span className="hero-tag">Live 3D scene — rendered in real time with Three.js</span>
     </header>
   );
 }

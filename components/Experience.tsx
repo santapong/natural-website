@@ -30,7 +30,7 @@ export default function Experience() {
       <footer className="site-footer">
         <span className="footer-mark">NATURAL WILD</span>
         <span className="footer-credit">
-          Three.js · Spline · Anime.js — a scroll-driven forest story
+          Three.js · Anime.js — a scroll-driven forest story
         </span>
       </footer>
 
