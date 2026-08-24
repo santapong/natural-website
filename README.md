@@ -1,8 +1,14 @@
 # Natural Wild
 
-An interactive 3D scroll-driven forest journey — drift from the firefly-lit
-forest floor, up through the golden canopy, across a hidden river, into the
-sunset finale.
+An interactive 3D scroll-driven journey through seven wild places — drift
+from the firefly-lit forest floor, up through the golden canopy, skim across
+a mirror lake, pass behind a waterfall, thread a dark fjord, cross the silent
+tundra, and end on golden sand at sunset.
+
+## Chapters
+
+I Forest Floor · II The Canopy · III Mirror Lake · IV The Falling Veil ·
+V The Fjord · VI White Silence · VII The Golden Sand
 
 ## Stack
 
@@ -59,8 +65,12 @@ components/
     Rocks.tsx / Mushrooms.tsx
     Fireflies.tsx / FallingLeaves.tsx   GPU particle systems
     MistPlanes.tsx / Rays.tsx           volumetric-ish dressing
-    River.tsx         procedural water shader
-    SunFinale.tsx     sunset disc + glow
+    Lake.tsx          calm mirror-lake water shader (chapter III)
+    Waterfall.tsx     falling veil, spray + foam pool (chapter IV)
+    Fjord.tsx         basalt walls + dark water passage (chapter V)
+    Tundra.tsx        snow field, shrubs, snowfall (chapter VI)
+    Desert.tsx        dunes, cacti, rocks (chapter VII)
+    SunFinale.tsx     desert sunset disc + glow
 hooks/useJourney.ts  scroll progress hook
 lib/                 chapters, camera paths, atmosphere stops, utils
 ```

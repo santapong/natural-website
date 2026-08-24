@@ -25,6 +25,7 @@ export default function Rocks() {
       guard++;
       const x = rng() * 60 - 30;
       const z = 20 - rng() * 170;
+      if (z < -46) continue; // forest rocks only — other biomes dress themselves
       let clear = true;
       for (const p of pathSamples) {
         const dx = p.x - x;

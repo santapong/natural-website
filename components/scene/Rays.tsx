@@ -8,9 +8,6 @@ const BEAMS = [
   { pos: [-9, 15, -40], w: 2.4, tilt: 0.26, opacity: 0.07 },
   { pos: [-2, 16, -46], w: 3.0, tilt: 0.22, opacity: 0.09 },
   { pos: [5, 15, -42], w: 2.2, tilt: 0.3, opacity: 0.06 },
-  { pos: [10, 14, -52], w: 2.6, tilt: 0.24, opacity: 0.07 },
-  { pos: [-6, 17, -56], w: 3.4, tilt: 0.28, opacity: 0.08 },
-  { pos: [1, 15, -62], w: 2.4, tilt: 0.25, opacity: 0.07 },
 ] as const;
 
 export default function Rays() {

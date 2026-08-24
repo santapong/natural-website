@@ -9,10 +9,22 @@ interface Stop {
 }
 
 const STOPS: Stop[] = [
+  // forest floor
   { t: 0.0, color: "#0b2418", density: 0.03, light: "#cfe8d2", intensity: 1.1 },
-  { t: 0.34, color: "#12351f", density: 0.02, light: "#e9ffd9", intensity: 1.25 },
-  { t: 0.62, color: "#0d3034", density: 0.018, light: "#bfffe9", intensity: 1.1 },
-  { t: 1.0, color: "#57300f", density: 0.026, light: "#ffb45e", intensity: 1.5 },
+  // canopy
+  { t: 0.14, color: "#12351f", density: 0.02, light: "#e9ffd9", intensity: 1.25 },
+  // mirror lake
+  { t: 0.29, color: "#0d3034", density: 0.018, light: "#bfffe9", intensity: 1.15 },
+  // waterfall mist
+  { t: 0.43, color: "#2c474c", density: 0.032, light: "#dff5f2", intensity: 1.25 },
+  // fjord
+  { t: 0.57, color: "#14262e", density: 0.02, light: "#a9ccd6", intensity: 1.05 },
+  // tundra
+  { t: 0.71, color: "#26333e", density: 0.012, light: "#dbe9f5", intensity: 1.3 },
+  // desert approach
+  { t: 0.86, color: "#4a2f12", density: 0.016, light: "#ffc27a", intensity: 1.45 },
+  // golden sand finale
+  { t: 1.0, color: "#6b3410", density: 0.02, light: "#ff9a45", intensity: 1.6 },
 ];
 
 const colors = STOPS.map((s) => ({

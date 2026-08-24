@@ -50,7 +50,7 @@ export default function Fireflies() {
     for (let i = 0; i < COUNT; i++) {
       positions[i * 3] = rng() * 44 - 22;
       positions[i * 3 + 1] = Math.pow(rng(), 1.6) * 3.8 + 0.25;
-      positions[i * 3 + 2] = 10 - rng() * 80;
+      positions[i * 3 + 2] = 10 - rng() * 52;
       phases[i] = rng() * Math.PI * 2;
       speeds[i] = 0.4 + rng();
       amps[i] = 0.2 + rng() * 0.65;

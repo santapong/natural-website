@@ -11,8 +11,12 @@ import Mushrooms from "./Mushrooms";
 import Fireflies from "./Fireflies";
 import FallingLeaves from "./FallingLeaves";
 import MistPlanes from "./MistPlanes";
-import River from "./River";
 import Rays from "./Rays";
+import Lake from "./Lake";
+import Waterfall from "./Waterfall";
+import Fjord from "./Fjord";
+import Tundra from "./Tundra";
+import Desert from "./Desert";
 import SunFinale from "./SunFinale";
 
 export default function ForestScene({
@@ -69,8 +73,14 @@ export default function ForestScene({
       <Fireflies />
       <FallingLeaves />
       <MistPlanes />
-      <River />
       <Rays />
+
+      {/* biome chain: forest > lake > waterfall > fjord > tundra > desert */}
+      <Lake />
+      <Waterfall />
+      <Fjord />
+      <Tundra />
+      <Desert />
       <SunFinale />
     </>
   );

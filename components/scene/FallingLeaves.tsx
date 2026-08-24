@@ -57,7 +57,7 @@ export default function FallingLeaves() {
     for (let i = 0; i < COUNT; i++) {
       positions[i * 3] = rng() * 44 - 22;
       positions[i * 3 + 1] = 6 + rng() * 8;
-      positions[i * 3 + 2] = -18 - rng() * 74;
+      positions[i * 3 + 2] = -14 - rng() * 34;
       phases[i] = rng() * Math.PI * 2;
       speeds[i] = 0.5 + rng() * 0.7;
       sways[i] = 0.6 + rng() * 1.0;

@@ -6,17 +6,17 @@ import * as THREE from "three";
 export default function SunFinale() {
   return (
     <>
-      <group position={[0, 0, -170]}>
-        <mesh position={[0, 10, 0]}>
-          <circleGeometry args={[17, 48]} />
-          <meshBasicMaterial color="#ffc27a" fog={false} />
+      <group position={[0, 0, -308]}>
+        <mesh position={[0, 12, 0]}>
+          <circleGeometry args={[26, 48]} />
+          <meshBasicMaterial color="#ffbe72" fog={false} />
         </mesh>
-        <mesh position={[0, 10, 0]}>
-          <circleGeometry args={[30, 48]} />
+        <mesh position={[0, 12, 0]}>
+          <circleGeometry args={[46, 48]} />
           <meshBasicMaterial
-            color="#ff9e4d"
+            color="#ff9440"
             transparent
-            opacity={0.22}
+            opacity={0.24}
             blending={THREE.AdditiveBlending}
             depthWrite={false}
             fog={false}
@@ -24,15 +24,15 @@ export default function SunFinale() {
         </mesh>
       </group>
       <Sparkles
-        position={[0, 6, -148]}
-        scale={[26, 14, 24]}
-        count={70}
+        position={[0, 7, -286]}
+        scale={[34, 15, 30]}
+        count={110}
         color="#ffd9a0"
         size={5}
         speed={0.3}
         opacity={0.7}
       />
-      <pointLight position={[0, 7, -150]} intensity={60} distance={70} decay={2} color="#ffb45e" />
+      <pointLight position={[0, 9, -288]} intensity={110} distance={130} decay={2} color="#ffa050" />
     </>
   );
 }
