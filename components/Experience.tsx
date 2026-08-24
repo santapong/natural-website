@@ -7,6 +7,7 @@ import { CHAPTERS } from "@/lib/chapters";
 import Hero from "@/components/Hero";
 import ChapterText from "@/components/overlay/ChapterText";
 import NavDots from "@/components/NavDots";
+import TreeAnatomy from "@/components/anatomy/TreeAnatomy";
 
 const JourneyCanvas = dynamic(() => import("@/components/JourneyCanvas"), {
   ssr: false,
@@ -53,6 +54,8 @@ export default function Experience() {
           <ChapterText key={c.id} chapter={c} index={i} />
         ))}
       </section>
+
+      <TreeAnatomy />
 
       <footer className="site-footer">
         <span className="footer-mark">NATURAL WILD</span>

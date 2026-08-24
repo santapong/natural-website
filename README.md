@@ -48,6 +48,13 @@ npm run lint
 npm run typecheck
 ```
 
+## Anatomy of a Tree — the anime.js way
+
+After the desert finale, keep scrolling: a bonus **scroll-driven exploded
+view** (`components/anatomy/TreeAnatomy.tsx`). The tree disassembles into
+seven labelled parts like an engineering diagram, then the camera orbits
+the floating pieces. Scroll back up to reassemble it.
+
 ## World map mode
 
 Press **🗺️ World map** (bottom-right, next to Free walk) to pull the camera
