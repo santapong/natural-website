@@ -208,6 +208,54 @@ button {
   backdrop-filter: blur(8px);
 }
 
+.walk-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 22px;
+  z-index: 40;
+  cursor: pointer;
+  border: 1px solid rgba(143, 227, 136, 0.4);
+  border-radius: 999px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.8rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  background: rgba(5, 13, 9, 0.72);
+  backdrop-filter: blur(10px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.walk-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px rgba(143, 227, 136, 0.22);
+}
+
+.walk-hud {
+  position: fixed;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%);
+  z-index: 40;
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: rgba(234, 245, 236, 0.85);
+  background: rgba(5, 13, 9, 0.72);
+  border: 1px solid rgba(234, 245, 236, 0.14);
+  border-radius: 999px;
+  padding: 0.5rem 1.1rem;
+  backdrop-filter: blur(10px);
+}
+
+.walk-hud strong {
+  color: var(--accent);
+}
+
 .journey {
   position: relative;
   height: 1400vh;
@@ -404,5 +452,11 @@ button {
   .hero .hero-title .inner {
     opacity: 1 !important;
     transform: none !important;
+  }
+}
+
+@media (pointer: coarse) {
+  .walk-btn {
+    display: none;
   }
 }

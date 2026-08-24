@@ -48,6 +48,18 @@ npm run lint
 npm run typecheck
 ```
 
+## Free-walk mode
+
+Press **🚶 Free walk** (bottom-right, desktop only) to leave the rails and
+explore all ten biomes on foot:
+
+- **WASD / arrows** — move · **Shift** — run
+- **Mouse** — look around (click the canvas to capture the pointer)
+- **ESC** — exit back to the scroll journey
+
+You spawn exactly where the scroll journey left off. Page scrolling is
+locked while walking.
+
 ## Customize the hero
 
 The hero is a fully procedural Three.js scene (no Spline needed) — a

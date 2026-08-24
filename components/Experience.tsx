@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 import { useJourney } from "@/hooks/useJourney";
 import { CHAPTERS } from "@/lib/chapters";
 import Hero from "@/components/Hero";
@@ -13,6 +14,15 @@ const JourneyCanvas = dynamic(() => import("@/components/JourneyCanvas"), {
 
 export default function Experience() {
   const { journeyRef, progressRef, chapter } = useJourney();
+  const [freeWalk, setFreeWalk] = useState(false);
+
+  // freeze page scroll while exploring on foot
+  useEffect(() => {
+    document.body.style.overflow = freeWalk ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [freeWalk]);
 
   return (
     <>
@@ -20,7 +30,11 @@ export default function Experience() {
 
       <section id="journey" ref={journeyRef} className="journey">
         <div className="stage">
-          <JourneyCanvas progressRef={progressRef} />
+          <JourneyCanvas
+            progressRef={progressRef}
+            freeWalk={freeWalk}
+            onWalkExit={() => setFreeWalk(false)}
+          />
         </div>
         {CHAPTERS.map((c, i) => (
           <ChapterText key={c.id} chapter={c} index={i} />
@@ -35,6 +49,24 @@ export default function Experience() {
       </footer>
 
       <NavDots active={chapter} />
+
+      {!freeWalk && (
+        <button
+          type="button"
+          className="walk-btn"
+          onClick={() => setFreeWalk(true)}
+          title="Explore the world on foot (desktop)"
+        >
+          🚶 Free walk
+        </button>
+      )}
+
+      {freeWalk && (
+        <div className="walk-hud">
+          <strong>WASD</strong> move · <strong>Shift</strong> run ·{" "}
+          <strong>mouse</strong> look · <strong>ESC</strong> exit
+        </div>
+      )}
     </>
   );
 }

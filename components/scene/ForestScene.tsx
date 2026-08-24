@@ -1,10 +1,12 @@
 "use client";
 
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { sampleAtmosphere } from "@/lib/atmosphere";
 import CameraRig from "./CameraRig";
+import FreeWalkRig from "./FreeWalkRig";
+import { cameraPath } from "@/lib/chapters";
 import Trees from "./Trees";
 import Rocks from "./Rocks";
 import Mushrooms from "./Mushrooms";
@@ -33,11 +35,16 @@ import Camel from "./Camel";
 
 export default function ForestScene({
   progressRef,
+  freeWalk = false,
+  onWalkExit,
 }: {
   progressRef: { current: number };
+  freeWalk?: boolean;
+  onWalkExit?: () => void;
 }) {
   const eased = useRef(0);
   const dirLight = useRef<THREE.DirectionalLight>(null);
+  const spawn = useMemo(() => new THREE.Vector3(7, 1.7, 26), []);
 
   useFrame((state, dt) => {
     eased.current = THREE.MathUtils.damp(
@@ -46,6 +53,8 @@ export default function ForestScene({
       2.8,
       dt,
     );
+    // remember where the scroll journey is so free-walk can spawn there
+    if (!freeWalk) cameraPath.getPoint(eased.current, spawn);
     const atmo = sampleAtmosphere(eased.current);
     const bg = state.scene.background;
     if (bg instanceof THREE.Color) bg.copy(atmo.fogColor);
@@ -78,7 +87,11 @@ export default function ForestScene({
         <meshStandardMaterial color="#10301d" roughness={1} metalness={0} />
       </mesh>
 
-      <CameraRig eased={eased} />
+      {freeWalk ? (
+        <FreeWalkRig spawn={spawn} onExit={onWalkExit ?? (() => {})} />
+      ) : (
+        <CameraRig eased={eased} />
+      )}
       <Trees />
       <Rocks />
       <Mushrooms />

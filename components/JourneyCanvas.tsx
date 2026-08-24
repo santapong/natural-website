@@ -6,8 +6,12 @@ import ForestScene from "@/components/scene/ForestScene";
 
 export default function JourneyCanvas({
   progressRef,
+  freeWalk = false,
+  onWalkExit,
 }: {
   progressRef: { current: number };
+  freeWalk?: boolean;
+  onWalkExit?: () => void;
 }) {
   return (
     <Canvas
@@ -16,7 +20,11 @@ export default function JourneyCanvas({
       gl={{ antialias: true, powerPreference: "high-performance" }}
     >
       <Suspense fallback={null}>
-        <ForestScene progressRef={progressRef} />
+        <ForestScene
+          progressRef={progressRef}
+          freeWalk={freeWalk}
+          onWalkExit={onWalkExit}
+        />
       </Suspense>
     </Canvas>
   );
