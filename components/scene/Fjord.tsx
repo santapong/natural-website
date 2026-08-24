@@ -79,7 +79,7 @@ export default function Fjord() {
   }, [walls]);
 
   return (
-    <group>
+    <group position={[0, 0, -34]}>
       <instancedMesh
         ref={meshRef}
         args={[undefined, undefined, walls.length]}

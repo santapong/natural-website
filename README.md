@@ -1,14 +1,22 @@
 # Natural Wild
 
-An interactive 3D scroll-driven journey through seven wild places — drift
-from the firefly-lit forest floor, up through the golden canopy, skim across
-a mirror lake, pass behind a waterfall, thread a dark fjord, cross the silent
-tundra, and end on golden sand at sunset.
+An interactive 3D scroll-driven journey through ten wild places — drift
+from the firefly-lit forest floor, up through the golden canopy, into an
+autumn woodland, skim across a mirror lake, fly through a waterfall, thread
+a dark fjord, soar over alpine peaks, cross the silent tundra and endless
+grass, and end on golden sand at sunset.
 
 ## Chapters
 
-I Forest Floor · II The Canopy · III Mirror Lake · IV The Falling Veil ·
-V The Fjord · VI White Silence · VII The Golden Sand
+I Forest Floor · II The Canopy · III Autumn Woodland · IV Mirror Lake ·
+V The Falling Veil · VI The Fjord · VII Alpine Peaks · VIII White Silence ·
+IX Endless Grass · X The Golden Sand
+
+## Wildlife
+
+- **Deer** — grazes in the autumn woodland (`Deer.tsx`)
+- **Leaping fish** — arcs out of the mirror lake with splash rings (`Fish.tsx`)
+- **Bird flocks** — gulls over the lake, swallows over the savanna (`Birds.tsx`)
 
 ## Stack
 
@@ -65,11 +73,17 @@ components/
     Rocks.tsx / Mushrooms.tsx
     Fireflies.tsx / FallingLeaves.tsx   GPU particle systems
     MistPlanes.tsx / Rays.tsx           volumetric-ish dressing
-    Lake.tsx          calm mirror-lake water shader (chapter III)
-    Waterfall.tsx     falling veil, spray + foam pool (chapter IV)
-    Fjord.tsx         basalt walls + dark water passage (chapter V)
-    Tundra.tsx        snow field, shrubs, snowfall (chapter VI)
-    Desert.tsx        dunes, cacti, rocks (chapter VII)
+    Lake.tsx          calm mirror-lake water shader (chapter IV)
+    Autumn.tsx        amber trees + leaf rain (chapter III)
+    Deer.tsx          grazing low-poly deer (chapter III)
+    Fish.tsx          leaping fish with splash rings (chapter IV)
+    Birds.tsx         flapping flock, reusable (lake / savanna)
+    Waterfall.tsx     falling veil, spray + foam pool (chapter V)
+    Fjord.tsx         basalt walls + dark water passage (chapter VI)
+    Alpine.tsx        snow-capped spires + cloud deck (chapter VII)
+    Tundra.tsx        snow field, shrubs, snowfall (chapter VIII)
+    Savanna.tsx       acacias, termite mounds (chapter IX)
+    Desert.tsx        dunes, cacti, rocks (chapter X)
     SunFinale.tsx     desert sunset disc + glow
 hooks/useJourney.ts  scroll progress hook
 lib/                 chapters, camera paths, atmosphere stops, utils

@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { animate, createScope, stagger } from "animejs";
 import type { Chapter } from "@/lib/chapters";
 
-const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII"];
-const CHAPTER_END = 6;
+const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
+const CHAPTER_END = 9;
 
 export default function ChapterText({
   chapter,

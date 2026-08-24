@@ -133,7 +133,7 @@ export default function Tundra() {
   });
 
   return (
-    <group>
+    <group position={[0, 0, -72]}>
       {/* snow field */}
       <mesh position={[0, 0.02, -222]} rotation-x={-Math.PI / 2}>
         <circleGeometry args={[60, 48]} />

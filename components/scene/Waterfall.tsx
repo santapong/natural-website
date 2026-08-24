@@ -116,7 +116,7 @@ export default function Waterfall() {
   ] as const;
 
   return (
-    <group>
+    <group position={[0, 0, -24]}>
       {/* twin rock towers flanking the notch the river pours through */}
       <mesh position={[-24, 21, -134]}>
         <boxGeometry args={[32, 46, 5]} />

@@ -12,12 +12,18 @@ import Fireflies from "./Fireflies";
 import FallingLeaves from "./FallingLeaves";
 import MistPlanes from "./MistPlanes";
 import Rays from "./Rays";
+import Autumn from "./Autumn";
+import Deer from "./Deer";
 import Lake from "./Lake";
+import Fish from "./Fish";
 import Waterfall from "./Waterfall";
 import Fjord from "./Fjord";
+import Alpine from "./Alpine";
 import Tundra from "./Tundra";
+import Savanna from "./Savanna";
 import Desert from "./Desert";
 import SunFinale from "./SunFinale";
+import Birds from "./Birds";
 
 export default function ForestScene({
   progressRef,
@@ -75,11 +81,18 @@ export default function ForestScene({
       <MistPlanes />
       <Rays />
 
-      {/* biome chain: forest > lake > waterfall > fjord > tundra > desert */}
+      {/* biome chain: forest > autumn > lake > waterfall > fjord > alpine > tundra > savanna > desert */}
+      <Autumn />
+      <Deer />
       <Lake />
+      <Fish />
+      <Birds center={[0, 9, -104]} radius={17} count={9} speed={0.14} color="#f4f7f9" scale={1.1} />
       <Waterfall />
       <Fjord />
+      <Alpine />
       <Tundra />
+      <Savanna />
+      <Birds center={[0, 7, -340]} radius={21} count={6} speed={-0.1} color="#3d3229" scale={0.8} />
       <Desert />
       <SunFinale />
     </>

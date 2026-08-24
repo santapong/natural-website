@@ -68,7 +68,7 @@ function Scatter({
 
 export default function Desert() {
   return (
-    <group>
+    <group position={[0, 0, -106]}>
       {/* sand sea */}
       <mesh position={[0, 0.015, -292]} rotation-x={-Math.PI / 2}>
         <circleGeometry args={[85, 48]} />

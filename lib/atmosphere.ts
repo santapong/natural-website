@@ -9,21 +9,26 @@ interface Stop {
 }
 
 const STOPS: Stop[] = [
-  // forest floor
+  // I forest floor
   { t: 0.0, color: "#0b2418", density: 0.03, light: "#cfe8d2", intensity: 1.1 },
-  // canopy
-  { t: 0.14, color: "#12351f", density: 0.02, light: "#e9ffd9", intensity: 1.25 },
-  // mirror lake
-  { t: 0.29, color: "#0d3034", density: 0.018, light: "#bfffe9", intensity: 1.15 },
-  // waterfall mist
-  { t: 0.43, color: "#2c474c", density: 0.032, light: "#dff5f2", intensity: 1.25 },
-  // fjord
-  { t: 0.57, color: "#14262e", density: 0.02, light: "#a9ccd6", intensity: 1.05 },
-  // tundra
-  { t: 0.71, color: "#26333e", density: 0.012, light: "#dbe9f5", intensity: 1.3 },
-  // desert approach
-  { t: 0.86, color: "#4a2f12", density: 0.016, light: "#ffc27a", intensity: 1.45 },
-  // golden sand finale
+  // II canopy
+  { t: 0.1, color: "#12351f", density: 0.02, light: "#e9ffd9", intensity: 1.25 },
+  // III autumn woodland
+  { t: 0.2, color: "#3a2410", density: 0.02, light: "#ffd9a0", intensity: 1.35 },
+  // IV mirror lake
+  { t: 0.3, color: "#0d3034", density: 0.018, light: "#bfffe9", intensity: 1.15 },
+  // V waterfall mist
+  { t: 0.4, color: "#2c474c", density: 0.032, light: "#dff5f2", intensity: 1.25 },
+  // VI fjord
+  { t: 0.5, color: "#14262e", density: 0.02, light: "#a9ccd6", intensity: 1.05 },
+  // VII alpine peaks
+  { t: 0.6, color: "#1c2733", density: 0.014, light: "#cfe2f5", intensity: 1.3 },
+  // VIII tundra
+  { t: 0.7, color: "#26333e", density: 0.012, light: "#dbe9f5", intensity: 1.3 },
+  // IX savanna
+  { t: 0.8, color: "#4a3a12", density: 0.014, light: "#ffe1a0", intensity: 1.45 },
+  // X golden sand finale
+  { t: 0.9, color: "#5c2f10", density: 0.017, light: "#ffa854", intensity: 1.55 },
   { t: 1.0, color: "#6b3410", density: 0.02, light: "#ff9a45", intensity: 1.6 },
 ];
 

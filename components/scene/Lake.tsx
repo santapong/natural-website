@@ -44,7 +44,7 @@ export default function Lake() {
   });
 
   return (
-    <mesh position={[0, 0.07, -68]} rotation={[-Math.PI / 2, 0, 0.06]}>
+    <mesh position={[0, 0.07, -104]} rotation={[-Math.PI / 2, 0, 0.06]}>
       <planeGeometry args={[64, 44]} />
       <shaderMaterial
         ref={matRef}

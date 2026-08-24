@@ -6,7 +6,7 @@ import * as THREE from "three";
 export default function SunFinale() {
   return (
     <>
-      <group position={[0, 0, -308]}>
+      <group position={[0, 0, -414]}>
         <mesh position={[0, 12, 0]}>
           <circleGeometry args={[26, 48]} />
           <meshBasicMaterial color="#ffbe72" fog={false} />
@@ -24,7 +24,7 @@ export default function SunFinale() {
         </mesh>
       </group>
       <Sparkles
-        position={[0, 7, -286]}
+        position={[0, 7, -392]}
         scale={[34, 15, 30]}
         count={110}
         color="#ffd9a0"
@@ -32,7 +32,7 @@ export default function SunFinale() {
         speed={0.3}
         opacity={0.7}
       />
-      <pointLight position={[0, 9, -288]} intensity={110} distance={130} decay={2} color="#ffa050" />
+      <pointLight position={[0, 9, -394]} intensity={110} distance={130} decay={2} color="#ffa050" />
     </>
   );
 }
