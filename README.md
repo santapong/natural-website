@@ -14,9 +14,16 @@ IX Endless Grass · X The Golden Sand
 
 ## Wildlife
 
+- **Butterflies** — flutter over the forest clearing (`Butterfly.tsx`)
 - **Deer** — grazes in the autumn woodland (`Deer.tsx`)
+- **Rabbit** — hops and sniffs beside the trail (`Rabbit.tsx`)
 - **Leaping fish** — arcs out of the mirror lake with splash rings (`Fish.tsx`)
-- **Bird flocks** — gulls over the lake, swallows over the savanna (`Birds.tsx`)
+- **Gulls & swallows** — flocks circling lake and savanna (`Birds.tsx`)
+- **Whale** — breaches in the dark fjord water with blowhole spout (`Whale.tsx`)
+- **Eagles** — soar with you over the alpine peaks (`Birds.tsx` eagle preset)
+- **Arctic fox** — trots the tundra snow (`Fox.tsx`)
+- **Giraffe** — ambles between the acacias (`Giraffe.tsx`)
+- **Camel** — crosses the desert dunes (`Camel.tsx`)
 
 ## Stack
 

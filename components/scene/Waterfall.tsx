@@ -92,7 +92,7 @@ export default function Waterfall() {
     const speeds = new Float32Array(SPRAY_COUNT);
     const rises = new Float32Array(SPRAY_COUNT);
     for (let i = 0; i < SPRAY_COUNT; i++) {
-      positions[i * 3] = rng() * 16 - 8;
+      positions[i * 3] = rng() * 10 - 9.5;
       positions[i * 3 + 1] = 0.3 + rng() * 0.8;
       positions[i * 3 + 2] = rng() * 8 - 11;
       phases[i] = rng() * Math.PI * 2;
@@ -109,20 +109,20 @@ export default function Waterfall() {
   });
 
   const mists = [
-    { pos: [0, 2.2, -126], w: 20, h: 8, o: 0.14 },
-    { pos: [-5, 3.5, -122], w: 16, h: 7, o: 0.1 },
-    { pos: [6, 4.5, -124], w: 14, h: 7, o: 0.09 },
-    { pos: [0, 30, -128], w: 18, h: 7, o: 0.08 },
+    { pos: [-4.5, 2.2, -126], w: 20, h: 8, o: 0.14 },
+    { pos: [-9.5, 3.5, -122], w: 16, h: 7, o: 0.1 },
+    { pos: [1.5, 4.5, -124], w: 14, h: 7, o: 0.09 },
+    { pos: [-4.5, 30, -128], w: 18, h: 7, o: 0.08 },
   ] as const;
 
   return (
     <group position={[0, 0, -24]}>
-      {/* twin rock towers flanking the notch the river pours through */}
-      <mesh position={[-24, 21, -134]}>
+      {/* twin rock towers flanking the notch — the trail slips past on the right */}
+      <mesh position={[-26, 21, -134]}>
         <boxGeometry args={[32, 46, 5]} />
         <meshStandardMaterial color="#2a3944" roughness={1} flatShading />
       </mesh>
-      <mesh position={[23, 21, -134]}>
+      <mesh position={[25, 21, -134]}>
         <boxGeometry args={[30, 46, 5]} />
         <meshStandardMaterial color="#253340" roughness={1} flatShading />
       </mesh>
@@ -136,14 +136,14 @@ export default function Waterfall() {
       </mesh>
 
       {/* stone ledge the stream flows off before falling */}
-      <mesh position={[0, 33.2, -132.5]}>
-        <boxGeometry args={[19, 3.4, 8]} />
+      <mesh position={[-2, 33.2, -132.5]}>
+        <boxGeometry args={[21, 3.4, 8]} />
         <meshStandardMaterial color="#2a3944" roughness={1} flatShading />
       </mesh>
 
-      {/* falling water sheet */}
-      <mesh position={[0, 17.5, -131.4]}>
-        <planeGeometry args={[13, 34]} />
+      {/* falling water sheet — hangs left, leaving an open trail channel on the right */}
+      <mesh position={[-4.5, 17.5, -131.4]}>
+        <planeGeometry args={[11, 34]} />
         <shaderMaterial
           ref={sheetMat}
           uniforms={uniforms}
@@ -156,13 +156,13 @@ export default function Waterfall() {
       </mesh>
 
       {/* bright lip at the top edge of the ledge */}
-      <mesh position={[0, 31.6, -130.5]} rotation-x={-Math.PI / 2}>
-        <planeGeometry args={[13.6, 2.2]} />
+      <mesh position={[-4.5, 31.6, -130.5]} rotation-x={-Math.PI / 2}>
+        <planeGeometry args={[11.6, 2.2]} />
         <meshBasicMaterial color="#cfeef5" transparent opacity={0.85} />
       </mesh>
 
       {/* churning foam pool at the base */}
-      <mesh position={[0, 0.12, -127]} rotation-x={-Math.PI / 2}>
+      <mesh position={[-4.5, 0.12, -127]} rotation-x={-Math.PI / 2}>
         <circleGeometry args={[9.5, 40]} />
         <meshBasicMaterial
           map={tex}
@@ -212,7 +212,7 @@ export default function Waterfall() {
       </group>
 
       {/* cold light inside the gorge */}
-      <pointLight position={[0, 6, -120]} intensity={40} distance={46} decay={2} color="#bfeaf2" />
+      <pointLight position={[-3, 6, -120]} intensity={40} distance={46} decay={2} color="#bfeaf2" />
     </group>
   );
 }

@@ -31,7 +31,7 @@ export default function Trees() {
       guard++;
       const x = rng() * 76 - 38;
       const z = 26 - rng() * 200;
-      if (z < -46 && rng() > 0.14) continue; // thin out past the forest edge (lake begins)
+      if (z < -50) continue; // forest ends before the autumn woodland
       let clear = true;
       for (const p of pathSamples) {
         const dx = p.x - x;

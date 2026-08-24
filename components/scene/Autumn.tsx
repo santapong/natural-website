@@ -14,7 +14,6 @@ attribute float aPhase;
 attribute float aSpeed;
 attribute float aDrift;
 varying vec3 vColor;
-attribute vec3 color;
 void main() {
   vec3 p = position;
   p.y = mod(p.y - uTime * aSpeed, 11.0);

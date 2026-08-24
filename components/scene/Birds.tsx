@@ -12,6 +12,7 @@ export default function Birds({
   speed = 0.14,
   color = "#f4f7f9",
   scale = 1,
+  flapSpeed = 7,
 }: {
   center?: [number, number, number];
   radius?: number;
@@ -19,17 +20,18 @@ export default function Birds({
   speed?: number;
   color?: string;
   scale?: number;
+  flapSpeed?: number;
 }) {
   const birds = useMemo(() => {
     const rng = mulberry32(Math.round(radius * 100) + count);
     return Array.from({ length: count }, (_, i) => ({
       offset: (i / count) * Math.PI * 2 + rng() * 0.5,
       alt: rng() * 2.4 - 1.2,
-      flap: 6 + rng() * 3,
+      flap: flapSpeed + rng() * 3,
       wobble: 0.6 + rng() * 0.8,
       s: 0.75 + rng() * 0.5,
     }));
-  }, [count, radius]);
+  }, [count, radius, flapSpeed]);
 
   const refs = useRef<(THREE.Group | null)[]>([]);
 

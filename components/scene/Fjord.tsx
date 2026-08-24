@@ -23,9 +23,9 @@ function buildWalls(): Wall[] {
     const side = i % 2 === 0 ? -1 : 1;
     // alternate stagger left/right so the passage narrows and widens
     walls.push({
-      x: side * (10.5 + rng() * 3),
+      x: side * (12.5 + rng() * 2.5),
       z,
-      w: 9 + rng() * 5,
+      w: 8 + rng() * 4,
       h: 22 + rng() * 20,
       d: 7 + rng() * 3,
       tilt: -side * (0.02 + rng() * 0.04),

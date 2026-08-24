@@ -19,27 +19,27 @@ function buildPeaks(): Peak[] {
   const rng = mulberry32(2468);
   const peaks: Peak[] = [];
 
-  // near spires framing the flight path
+  // near spires framing the flight path (kept well clear of the corridor)
   let guard = 0;
   while (peaks.length < 16 && guard++ < 400) {
     const side = rng() > 0.5 ? 1 : -1;
-    const x = side * (9 + rng() * 22);
+    const x = side * (13 + rng() * 20);
     const z = -232 - rng() * 36;
-    if (Math.abs(x) < 8.5) continue; // keep the valley open
     peaks.push({
       x,
       z,
       h: 22 + rng() * 22,
-      r: 3.2 + rng() * 4.4,
+      r: 3 + rng() * 3.4,
       rotY: rng() * Math.PI * 2,
       rock: new THREE.Color().setHSL(0.58, 0.06 + rng() * 0.05, 0.3 + rng() * 0.12),
     });
   }
 
-  // far ridge closing the horizon
+  // far ridge closing the horizon (off-corridor)
   for (let i = 0; i < 10; i++) {
+    const side = rng() > 0.5 ? 1 : -1;
     peaks.push({
-      x: rng() * 110 - 55,
+      x: side * (15 + rng() * 40),
       z: -276 - rng() * 26,
       h: 30 + rng() * 26,
       r: 5 + rng() * 7,
