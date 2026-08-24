@@ -1,10 +1,23 @@
 # Natural Wild
 
+![version](https://img.shields.io/badge/version-0.8.0-8fe388)
+![stack](https://img.shields.io/badge/Next.js%2016%20·%20React%2019%20·%20three.js-0b1a12)
+
 An interactive 3D scroll-driven journey through ten wild places — drift
 from the firefly-lit forest floor, up through the golden canopy, into an
 autumn woodland, skim across a mirror lake, fly through a waterfall, thread
 a dark fjord, soar over alpine peaks, cross the silent tundra and endless
 grass, and end on golden sand at sunset.
+
+**Four ways to experience it:** scroll the rails · 🚶 walk on foot ·
+🗺️ jump from the sky map · play with the tree & seed experiments.
+
+## How it works
+
+See **[docs/architecture.svg](docs/architecture.svg)** for the full diagram
+and **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** for the written tour:
+scroll → progress ref → camera splines → biome scenes → atmosphere lerp →
+WebGL.
 
 ## Chapters
 
@@ -126,5 +139,20 @@ components/
     Desert.tsx        dunes, cacti, rocks (chapter X)
     SunFinale.tsx     desert sunset disc + glow
 hooks/useJourney.ts  scroll progress hook
+hooks/useSectionProgress.ts  generic section progress
 lib/                 chapters, camera paths, atmosphere stops, utils
+docs/                architecture diagram + policies + type guide
+CHANGELOG.md         release history (Keep a Changelog)
 ```
+
+## Contributing
+
+Read [`docs/BRANCH_POLICY.md`](docs/BRANCH_POLICY.md) for branch naming,
+the merge flow, and versioning, and
+[`docs/REPO_POLICY.md`](docs/REPO_POLICY.md) for commit conventions and
+code standards. In short:
+
+1. Branch `feat/<name>` from `main`
+2. Keep `lint` · `typecheck` · `build` green
+3. Squash-merge with a Conventional Commit title
+4. Add a CHANGELOG bullet under **Unreleased**

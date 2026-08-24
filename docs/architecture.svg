@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 860" font-family="ui-monospace, 'Cascadia Code', Menlo, monospace">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#8fe388"/>
+    </marker>
+    <marker id="arrb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#6fb7ff"/>
+    </marker>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#08130d"/>
+      <stop offset="1" stop-color="#0b1a12"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="860" fill="url(#bg)"/>
+  <text x="40" y="52" fill="#eaf5ec" font-size="26" font-weight="bold">NATURAL WILD — how it works</text>
+  <text x="40" y="78" fill="#8aa392" font-size="13">Next.js 16 · React 19 · three.js via @react-three/fiber + drei · anime.js v4</text>
+
+  <!-- ============ LAYER 1: INPUTS ============ -->
+  <text x="40" y="122" fill="#8fe388" font-size="12" letter-spacing="3">1 · USER INPUT</text>
+
+  <g font-size="12">
+    <rect x="40" y="136" width="270" height="58" rx="12" fill="#10241a" stroke="#2f5a41"/>
+    <text x="56" y="160" fill="#eaf5ec" font-weight="bold">🖱️ Scroll wheel / touch</text>
+    <text x="56" y="178" fill="#9db8a6">drives the rail journey (1400vh)</text>
+
+    <rect x="330" y="136" width="250" height="58" rx="12" fill="#10241a" stroke="#2f5a41"/>
+    <text x="346" y="160" fill="#eaf5ec" font-weight="bold">⌨️ WASD + mouse</text>
+    <text x="346" y="178" fill="#9db8a6">free-walk mode (pointer lock)</text>
+
+    <rect x="600" y="136" width="290" height="58" rx="12" fill="#10241a" stroke="#2f5a41"/>
+    <text x="616" y="160" fill="#eaf5ec" font-weight="bold">🔘 UI buttons &amp; slider</text>
+    <text x="616" y="178" fill="#9db8a6">map beacons · play/slider · toss seeds</text>
+
+    <rect x="910" y="136" width="330" height="58" rx="12" fill="#10241a" stroke="#2f5a41"/>
+    <text x="926" y="160" fill="#eaf5ec" font-weight="bold">🧲 Drag &amp; release</text>
+    <text x="926" y="178" fill="#9db8a6">Seed Sanctuary aim + power</text>
+  </g>
+
+  <!-- arrows down from inputs -->
+  <line x1="175" y1="194" x2="175" y2="232" stroke="#8fe388" marker-end="url(#arr)"/>
+  <line x1="455" y1="194" x2="455" y2="232" stroke="#8fe388" marker-end="url(#arr)"/>
+  <line x1="745" y1="194" x2="745" y2="232" stroke="#8fe388" marker-end="url(#arr)"/>
+  <line x1="1075" y1="194" x2="1075" y2="452" stroke="#8fe388" marker-end="url(#arr)"/>
+
+  <!-- ============ LAYER 2: STATE ============ -->
+  <text x="40" y="252" fill="#8fe388" font-size="12" letter-spacing="3">2 · PROGRESS &amp; MODE STATE (refs, no re-renders)</text>
+
+  <g font-size="12">
+    <rect x="40" y="264" width="380" height="70" rx="12" fill="#12301f" stroke="#3d7a54"/>
+    <text x="56" y="288" fill="#cfe8d2" font-weight="bold">hooks/useJourney.ts</text>
+    <text x="56" y="306" fill="#9db8a6">scroll position → progressRef 0→1</text>
+    <text x="56" y="322" fill="#7fa88e">chapter index for NavDots + text cards</text>
+
+    <rect x="440" y="264" width="230" height="70" rx="12" fill="#12301f" stroke="#3d7a54"/>
+    <text x="456" y="288" fill="#cfe8d2" font-weight="bold">FreeWalkRig.tsx</text>
+    <text x="456" y="306" fill="#9db8a6">keys map + velocity damping</text>
+    <text x="456" y="322" fill="#7fa88e">yaw-only move, head bob, bounds</text>
+
+    <rect x="690" y="264" width="350" height="70" rx="12" fill="#12301f" stroke="#3d7a54"/>
+    <text x="706" y="288" fill="#cfe8d2" font-weight="bold">Experience.tsx mode state</text>
+    <text x="706" y="306" fill="#9db8a6">scroll | freeWalk | mapMode</text>
+    <text x="706" y="322" fill="#7fa88e">locks body scroll while exploring</text>
+  </g>
+
+  <!-- arrows into camera router -->
+  <line x1="230" y1="334" x2="230" y2="372" stroke="#8fe388" marker-end="url(#arr)"/>
+  <line x1="555" y1="334" x2="555" y2="372" stroke="#8fe388" marker-end="url(#arr)"/>
+  <line x1="865" y1="334" x2="865" y2="372" stroke="#8fe388" marker-end="url(#arr)"/>
+
+  <!-- ============ LAYER 3: CAMERA ROUTER ============ -->
+  <text x="40" y="390" fill="#8fe388" font-size="12" letter-spacing="3">3 · CAMERA ROUTER (ForestScene)</text>
+
+  <rect x="40" y="402" width="1200" height="66" rx="12" fill="#16351f" stroke="#4a9163"/>
+  <text x="60" y="428" fill="#eaf5ec" font-size="13" font-weight="bold">switch (mode)</text>
+  <text x="60" y="450" fill="#9db8a6" font-size="12">CameraRig (rails)  ·  FreeWalkRig (on foot)  ·  MapRig (sky view)   — one rig renders at a time; spawn point is shared so walking starts where scrolling stopped</text>
+
+  <line x1="640" y1="468" x2="640" y2="506" stroke="#8fe388" marker-end="url(#arr)"/>
+
+  <!-- ============ LAYER 4: WORLD DATA ============ -->
+  <text x="40" y="524" fill="#8fe388" font-size="12" letter-spacing="3">4 · WORLD DATA → RENDER</text>
+
+  <g font-size="12">
+    <rect x="40" y="536" width="300" height="118" rx="12" fill="#12301f" stroke="#3d7a54"/>
+    <text x="56" y="560" fill="#cfe8d2" font-weight="bold">lib/chapters.ts</text>
+    <text x="56" y="578" fill="#9db8a6">10 chapter cards + texts</text>
+    <text x="56" y="594" fill="#9db8a6">cameraPath / lookPath splines</text>
+    <text x="56" y="610" fill="#9db8a6">(CatmullRom, z 30 → −440)</text>
+    <text x="56" y="632" fill="#7fd48a">CHAPTER_ZONES (map beacons)</text>
+
+    <rect x="360" y="536" width="300" height="118" rx="12" fill="#12301f" stroke="#3d7a54"/>
+    <text x="376" y="560" fill="#cfe8d2" font-weight="bold">lib/atmosphere.ts</text>
+    <text x="376" y="578" fill="#9db8a6">11 color stops per biome:</text>
+    <text x="376" y="594" fill="#9db8a6">fog color + density,</text>
+    <text x="376" y="610" fill="#9db8a6">light color + intensity</text>
+    <text x="376" y="632" fill="#7fd48a">lerped by eased progress</text>
+
+    <rect x="680" y="536" width="280" height="118" rx="12" fill="#12301f" stroke="#3d7a54"/>
+    <text x="696" y="560" fill="#cfe8d2" font-weight="bold">ForestScene composition</text>
+    <text x="696" y="578" fill="#9db8a6">forest · autumn · lake · falls</text>
+    <text x="696" y="594" fill="#9db8a6">fjord · alpine · tundra · savanna</text>
+    <text x="696" y="610" fill="#9db8a6">desert · sun finale</text>
+    <text x="696" y="632" fill="#7fd48a">+ wildlife &amp; GPU particles</text>
+
+    <rect x="980" y="536" width="260" height="118" rx="12" fill="#12301f" stroke="#3d7a54"/>
+    <text x="996" y="560" fill="#cfe8d2" font-weight="bold">Wildlife rigs</text>
+    <text x="996" y="578" fill="#9db8a6">deer · rabbit · butterflies</text>
+    <text x="996" y="594" fill="#9db8a6">fish leap · whale breach</text>
+    <text x="996" y="610" fill="#9db8a6">fox · giraffe · camel · birds</text>
+    <text x="996" y="632" fill="#7fd48a">procedural walk/idle cycles</text>
+  </g>
+
+  <!-- arrows to output -->
+  <line x1="190" y1="654" x2="190" y2="692" stroke="#8fe388" marker-end="url(#arr)"/>
+  <line x1="510" y1="654" x2="510" y2="692" stroke="#8fe388" marker-end="url(#arr)"/>
+  <line x1="820" y1="654" x2="820" y2="692" stroke="#8fe388" marker-end="url(#arr)"/>
+
+  <!-- ============ LAYER 5: OUTPUT ============ -->
+  <text x="40" y="712" fill="#8fe388" font-size="12" letter-spacing="3">5 · OUTPUT</text>
+
+  <rect x="40" y="722" width="1200" height="52" rx="12" fill="#16351f" stroke="#4a9163"/>
+  <text x="60" y="754" fill="#eaf5ec" font-size="13" font-weight="bold">JourneyCanvas — WebGL @ up to 60fps (dpr 1–2, FogExp2, instanced meshes, shader points)</text>
+
+  <!-- ============ SIDE PANEL: STANDALONE SECTIONS ============ -->
+  <rect x="980" y="228" width="260" height="196" rx="14" fill="#233009" stroke="#8f8f4a"/>
+  <text x="996" y="256" fill="#f2efc7" font-weight="bold" font-size="12">STANDALONE SECTIONS</text>
+  <text x="996" y="278" fill="#cfc99a" font-size="11">HeroScene — own canvas,</text>
+  <text x="996" y="294" fill="#cfc99a" font-size="11">mouse-parallax clearing</text>
+  <text x="996" y="318" fill="#cfc99a" font-size="11">TreeAnatomy — slider/play</text>
+  <text x="996" y="334" fill="#cfc99a" font-size="11">drives exploded tree + orbit;</text>
+  <text x="996" y="350" fill="#cfc99a" font-size="11">click part → info panel</text>
+  <text x="996" y="374" fill="#cfc99a" font-size="11">SeedSanctuary — command bus</text>
+  <text x="996" y="390" fill="#cfc99a" font-size="11">→ gravity/bounce physics →</text>
+  <text x="996" y="406" fill="#cfc99a" font-size="11">sprouts grow on landing</text>
+
+  <line x1="1110" y1="194" x2="1110" y2="228" stroke="#6fb7ff" marker-end="url(#arrb)" opacity="0"/>
+  <line x1="1240" y1="165" x2="1256" y2="165" stroke="#6fb7ff" opacity="0"/>
+
+  <!-- footer note -->
+  <text x="40" y="806" fill="#6d8577" font-size="11">Every animated value lives in a ref and is mutated inside useFrame — React re-renders only when UI state changes (modes, panels, counters).</text>
+  <text x="40" y="826" fill="#6d8577" font-size="11">Full docs: README.md · docs/ARCHITECTURE.md · docs/REPO_POLICY.md · docs/BRANCH_POLICY.md · docs/3d-website-types.md · CHANGELOG.md</text>
+</svg>
