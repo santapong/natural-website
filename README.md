@@ -50,10 +50,18 @@ npm run typecheck
 
 ## Anatomy of a Tree — the anime.js way
 
-After the desert finale, keep scrolling: a bonus **scroll-driven exploded
-view** (`components/anatomy/TreeAnatomy.tsx`). The tree disassembles into
-seven labelled parts like an engineering diagram, then the camera orbits
-the floating pieces. Scroll back up to reassemble it.
+A single-screen **scroll-free exploded view** (`components/anatomy/TreeAnatomy.tsx`).
+Drag the slider or press **▶ Play** to disassemble the tree into seven
+staggered parts; past 62% the camera orbits the floating diagram. Click any
+part label for its full story and stats in the side panel.
+
+## Seed Sanctuary
+
+A one-screen **physics playground** (`components/sanctuary/SeedSanctuary.tsx`).
+Drag upward and release to toss glowing wish-seeds — custom gravity,
+bouncing, and spin; wherever a seed settles it sprouts into a tiny glowing
+tree (grove caps at 26). Includes landing-predictor ring, wish counter and
+grove reset.
 
 ## World map mode
 

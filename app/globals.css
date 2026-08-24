@@ -292,13 +292,11 @@ button {
 
 .anatomy {
   position: relative;
-  height: 440vh;
   background: #050d09;
 }
 
 .anatomy-stage {
-  position: sticky;
-  top: 0;
+  position: relative;
   height: 100vh;
   overflow: hidden;
 }
@@ -334,18 +332,51 @@ button {
   line-height: 1;
 }
 
-.part-label {
+.anatomy-controls {
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  background: rgba(5, 13, 9, 0.72);
+  border: 1px solid rgba(234, 245, 236, 0.14);
+  backdrop-filter: blur(10px);
+}
+
+.anatomy-controls input[type="range"] {
+  width: min(340px, 42vw);
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.anatomy-play {
+  padding: 0.45rem 1rem;
+  font-size: 0.8rem;
+}
+
+.anatomy-pct {
+  min-width: 3ch;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.78rem;
+  color: var(--accent);
+}
+
+.part-label button {
+  all: unset;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
-  white-space: nowrap;
-  padding: 0.45rem 0.9rem;
-  border-radius: 12px;
-  border: 1px solid rgba(143, 227, 136, 0.35);
-  border-left-width: 3px;
-  background: rgba(5, 13, 9, 0.82);
-  backdrop-filter: blur(8px);
-  transition: opacity 0.15s linear;
+}
+
+.part-label button:hover strong {
+  color: #d9ffcf;
 }
 
 .part-label strong {
@@ -357,6 +388,152 @@ button {
 .part-label span {
   font-size: 0.68rem;
   color: rgba(234, 245, 236, 0.72);
+}
+
+.part-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  white-space: nowrap;
+  padding: 0.45rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(143, 227, 136, 0.35);
+  border-left-width: 3px;
+  background: rgba(5, 13, 9, 0.82);
+  backdrop-filter: blur(8px);
+  transition: opacity 0.15s linear, border-color 0.2s ease;
+}
+
+.part-detail {
+  position: absolute;
+  right: clamp(18px, 4vw, 60px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  width: min(330px, calc(100vw - 48px));
+  padding: 1.3rem 1.4rem;
+  border-radius: 18px;
+  border: 1px solid rgba(143, 227, 136, 0.3);
+  background: rgba(5, 13, 9, 0.88);
+  backdrop-filter: blur(14px);
+}
+
+.part-detail h3 {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+
+.part-detail > p {
+  margin: 0 0 0.9rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: rgba(234, 245, 236, 0.85);
+}
+
+.part-detail dl {
+  margin: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.part-detail dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px dashed rgba(234, 245, 236, 0.15);
+  padding-top: 0.45rem;
+}
+
+.part-detail dt {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(234, 245, 236, 0.55);
+}
+
+.part-detail dd {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 650;
+  color: var(--accent);
+  text-align: right;
+}
+
+.part-detail-close {
+  all: unset;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: rgba(234, 245, 236, 0.7);
+  transition: background 0.2s ease;
+}
+
+.part-detail-close:hover {
+  background: rgba(234, 245, 236, 0.12);
+}
+
+/* ---------------- Seed Sanctuary (physics playground) ---------------- */
+
+.sanctuary {
+  position: relative;
+  background: #050d09;
+}
+
+.sanctuary-stage {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sanctuary-canvas,
+.sanctuary-canvas canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  touch-action: none;
+}
+
+.sanctuary-hud {
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(5, 13, 9, 0.72);
+  border: 1px solid rgba(234, 245, 236, 0.14);
+  backdrop-filter: blur(10px);
+}
+
+.chip {
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  color: rgba(234, 245, 236, 0.88);
+  white-space: nowrap;
+}
+
+.chip-btn {
+  all: unset;
+  cursor: pointer;
+  color: var(--accent);
+  transition: color 0.2s ease;
+}
+
+.chip-btn:hover {
+  color: #d9ffcf;
 }
 
 .stage {

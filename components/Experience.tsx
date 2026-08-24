@@ -8,6 +8,7 @@ import Hero from "@/components/Hero";
 import ChapterText from "@/components/overlay/ChapterText";
 import NavDots from "@/components/NavDots";
 import TreeAnatomy from "@/components/anatomy/TreeAnatomy";
+import SeedSanctuary from "@/components/sanctuary/SeedSanctuary";
 
 const JourneyCanvas = dynamic(() => import("@/components/JourneyCanvas"), {
   ssr: false,
@@ -56,6 +57,8 @@ export default function Experience() {
       </section>
 
       <TreeAnatomy />
+
+      <SeedSanctuary />
 
       <footer className="site-footer">
         <span className="footer-mark">NATURAL WILD</span>
